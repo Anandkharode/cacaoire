@@ -482,7 +482,7 @@
                 name: 'Royal Cashew Jaggery',
                 category: 'nutty',
                 price: 300,
-                image: 'https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=600&q=80',
+                image: 'images\\royal_jaggery.png',
                 description: 'Slow-roasted Piedmont Cashew praline encased in a 66% dark chocolate decorated shell.',
                 notes: ['Roasted Cashew', 'Jaggery', 'Dark Ganache'],
                 tag: 'Signature'
@@ -566,7 +566,7 @@
                     <div>
                         <div class="relative overflow-hidden h-56 bg-espresso">
                             <img src="${item.image}" alt="${item.name}"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 brightness-95 group-hover:brightness-100"
+                                 class="w-full h-full object-contain bg-champagne/20 group-hover:scale-105 transition-transform duration-500"
                                  onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
                             <span class="absolute top-3 left-3 bg-espresso/90 border border-mutedGold/50 text-mutedGold text-[10px] font-cinzel tracking-widest font-bold px-2.5 py-1 rounded">
                                 ${item.tag}
@@ -735,7 +735,7 @@
             const content = document.getElementById('quickViewContent');
             content.innerHTML = `
                 <div>
-                    <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-cover rounded-xl border border-mutedGold/40"
+                    <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-contain bg-champagne/20 rounded-xl border border-mutedGold/40"
                          onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
                 </div>
                 <div class="space-y-4">
