@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CACAOIRE CHOCOLATES — Handcrafted Artisanal Bonbons</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espresso: '#2B1710',
+                        champagne: '#E9DCC9',
+                        cream: '#F7EFE3',
+                        mutedGold: '#B08D57',
+                        goldHover: '#987743',
+                        darkOverlay: 'rgba(43, 23, 16, 0.85)'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        garamond: ['Cormorant Garamond', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Decorative Leaf Pattern & Leaf Line-art background */
+        .bg-leaf-pattern {
+            background-image: radial-gradient(#B08D57 0.75px, transparent 0.75px), radial-gradient(#B08D57 0.75px, #2B1710 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.95;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(176, 141, 87, 0.25);
+            border: 1px solid rgba(176, 141, 87, 0.4);
+        }
+
+        .curved-hero-overlay {
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+        }
+
+        @media (max-width: 1024px) {
+            .curved-hero-overlay {
+                clip-path: none;
+            }
+        }
+
+        /* Glassmorphic effect */
+        .glass-card {
+            background: rgba(247, 239, 227, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(176, 141, 87, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2B1710;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #B08D57;
+            border-radius: 4px;
+        }
+
+        /* Botanical SVG watermark background */
+        .botanical-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 C30 30 20 60 50 90 C80 60 70 30 50 10 Z' fill='none' stroke='%23B08D57' stroke-width='0.5' opacity='0.15'/%3E%3Cpath d='M50 10 L50 90' stroke='%23B08D57' stroke-width='0.3' opacity='0.15'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-cream text-espresso font-sans antialiased selection:bg-mutedGold selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-espresso text-champagne text-xs uppercase tracking-widest py-2.5 px-4 text-center border-b border-mutedGold/30">
+        <p class="font-medium">✨ Premium Handcrafted Bonbons For Every Occasion — Free Worldwide Express Shipping On Orders Over $100 ✨</p>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-espresso/95 backdrop-blur-md text-champagne border-b border-mutedGold/30 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="text-mutedGold group-hover:scale-105 transition-transform duration-300">
+                        <!-- Cacao Leaf Line Art Logo Icon -->
+                        <svg class="w-9 h-9" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M32 6C18 18 10 38 32 58C54 38 46 18 32 6Z" stroke="#B08D57" fill="none"/>
+                            <path d="M32 6V58" stroke="#B08D57"/>
+                            <path d="M32 20C24 26 20 34 22 42" stroke="#B08D57"/>
+                            <path d="M32 20C40 26 44 34 42 42" stroke="#B08D57"/>
+                            <path d="M32 32C22 36 16 46 18 52" stroke="#B08D57"/>
+                            <path d="M32 32C42 36 48 46 46 52" stroke="#B08D57"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-cinzel text-xl sm:text-2xl font-bold tracking-widest text-champagne group-hover:text-mutedGold transition-colors">CACAOIRE</span>
+                        <span class="text-[9px] tracking-[0.3em] text-mutedGold uppercase -mt-1 font-sans">Chocolates</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wider uppercase">
+                    <a href="#home" class="text-mutedGold hover:text-white transition-colors">Home</a>
+                    <a href="#bonbons" class="hover:text-mutedGold transition-colors">Bonbon Collection</a>
+                    <a href="#crafting" class="hover:text-mutedGold transition-colors">Our Craft</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="flex items-center space-x-5">
+                    <button id="searchBtn" class="p-2 hover:text-mutedGold transition-colors" title="Search">
+                        <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                    </button>
+                    <button class="p-2 hover:text-mutedGold transition-colors hidden sm:block" title="Account">
+                        <i class="fa-regular fa-user text-lg"></i>
+                    </button>
+                    <button id="cartBtn" class="p-2 hover:text-mutedGold transition-colors relative" title="Shopping Box">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-mutedGold text-espresso text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </button>
+                    <button id="mobileMenuBtn" class="p-2 md:hidden hover:text-mutedGold">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-espresso border-b border-mutedGold/30 px-6 py-6 space-y-4 text-center tracking-wider uppercase text-sm">
+            <a href="#home" class="block text-mutedGold hover:text-white py-1">Home</a>
+            <a href="#bonbons" class="block hover:text-mutedGold py-1">Bonbon Collection</a>
+            <a href="#crafting" class="block hover:text-mutedGold py-1">Our Craft</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-espresso text-champagne min-h-[85vh] flex items-center overflow-hidden">
+        <!-- Subtle botanical SVG background -->
+        <div class="absolute inset-0 opacity-10 botanical-bg pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 lg:py-0">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Banner (Left) -->
+                <div class="lg:col-span-6 z-10 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-mutedGold/15 border border-mutedGold/40 px-3.5 py-1.5 rounded-full text-xs uppercase tracking-widest text-mutedGold">
+                        <span class="w-2 h-2 rounded-full bg-mutedGold animate-pulse"></span>
+                        <span>Artisanal Handcrafted Collection</span>
+                    </div>
+
+                    <p class="font-script text-mutedGold text-3xl sm:text-4xl lg:text-5xl -mb-3">Sweet Moments, Better Days</p>
+
+                    <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-champagne">
+                        Handcrafted <br class="hidden sm:block"/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-champagne via-mutedGold to-champagne">Artisanal Bonbons</span>
+                    </h1>
+
+                    <p class="text-champagne/80 text-base sm:text-lg font-light leading-relaxed max-w-xl mx-auto lg:mx-0 font-garamond">
+                        Indulge in vibrant, glossy shells filled with rich single-origin ganache, velvety caramel, and exquisite natural infusions. Hand-painted chocolate artistry crafted for sweeter moments.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#bonbons" class="w-full sm:w-auto px-8 py-4 bg-mutedGold hover:bg-goldHover text-espresso font-cinzel font-semibold tracking-widest text-sm uppercase rounded shadow-lg transition-all transform hover:-translate-y-0.5 text-center">
+                            Explore Bonbons <i class="fa-solid fa-arrow-right-long ml-2"></i>
+                        </a>
+                    </div>
+
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-mutedGold/20 text-center lg:text-left">
+                        <div>
+                            <p class="font-cinzel text-xl text-mutedGold font-bold">100%</p>
+                            <p class="text-xs text-champagne/70 uppercase tracking-wider">Natural Cacao</p>
+                        </div>
+                        <div>
+                            <p class="font-cinzel text-xl text-mutedGold font-bold">Hand-Painted</p>
+                            <p class="text-xs text-champagne/70 uppercase tracking-wider">Edible Art</p>
+                        </div>
+                        <div>
+                            <p class="font-cinzel text-xl text-mutedGold font-bold">Fresh</p>
+                            <p class="text-xs text-champagne/70 uppercase tracking-wider">Made Daily</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Showcase (Right) -->
+                <div class="lg:col-span-6 relative">
+                    <!-- Leaf Outline Decorative Border Frame -->
+                    <div class="relative mx-auto max-w-lg lg:max-w-none">
+                        <div class="absolute -inset-2 rounded-2xl bg-gradient-to-r from-mutedGold/30 to-espresso/80 blur-lg opacity-70"></div>
+                        <div class="relative rounded-2xl overflow-hidden border-2 border-mutedGold/40 shadow-2xl bg-espresso">
+                            <!-- Hero Bonbon Display Image -->
+                            <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Exquisite Handcrafted Chocolate Bonbons" 
+                                 class="w-full h-[380px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700 brightness-95 hover:brightness-100"
+                                 onerror="this.src='https://placehold.co/1200x800/2B1710/E9DCC9?text=Handcrafted+Bonbons'">
+                            
+                            <!-- Overlay Badge -->
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-card text-espresso border border-mutedGold/50 flex items-center justify-between shadow-xl">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-mutedGold block">Featured Creation</span>
+                                    <h3 class="font-cinzel font-bold text-base text-espresso">Signature Gold Hazelnut Bonbon</h3>
+                                </div>
+                                <span class="font-cinzel font-bold text-espresso bg-mutedGold/20 px-3 py-1 rounded text-sm">$3.50 / ea</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Highlights / Key Values Grid -->
+    <section class="bg-champagne/40 py-12 border-y border-mutedGold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                
+                <div class="p-4 flex flex-col items-center space-y-3 group">
+                    <div class="w-14 h-14 rounded-full bg-espresso text-mutedGold flex items-center justify-center border border-mutedGold/40 group-hover:scale-110 transition-transform shadow-md">
+                        <i class="fa-solid fa-leaf text-2xl"></i>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-espresso text-sm tracking-wider uppercase">Premium Ingredients</h3>
+                    <p class="text-xs text-espresso/70 font-garamond max-w-[180px]">Single-origin Grand Cru Venezuelan Cacao & organic dairy</p>
+                </div>
+
+                <div class="p-4 flex flex-col items-center space-y-3 group">
+                    <div class="w-14 h-14 rounded-full bg-espresso text-mutedGold flex items-center justify-center border border-mutedGold/40 group-hover:scale-110 transition-transform shadow-md">
+                        <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-espresso text-sm tracking-wider uppercase">Handcrafted Care</h3>
+                    <p class="text-xs text-espresso/70 font-garamond max-w-[180px]">Individually hand-shelled, airbrushed & temper checked</p>
+                </div>
+
+                <div class="p-4 flex flex-col items-center space-y-3 group">
+                    <div class="w-14 h-14 rounded-full bg-espresso text-mutedGold flex items-center justify-center border border-mutedGold/40 group-hover:scale-110 transition-transform shadow-md">
+                        <i class="fa-solid fa-award text-2xl"></i>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-espresso text-sm tracking-wider uppercase">Loved By Connoisseurs</h3>
+                    <p class="text-xs text-espresso/70 font-garamond max-w-[180px]">Over 10,000+ 5-star reviews from chocolate lovers</p>
+                </div>
+
+                <div class="p-4 flex flex-col items-center space-y-3 group">
+                    <div class="w-14 h-14 rounded-full bg-espresso text-mutedGold flex items-center justify-center border border-mutedGold/40 group-hover:scale-110 transition-transform shadow-md">
+                        <i class="fa-solid fa-box-archive text-2xl"></i>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-espresso text-sm tracking-wider uppercase">Safe & Elegant Packaging</h3>
+                    <p class="text-xs text-espresso/70 font-garamond max-w-[180px]">Temperature-controlled luxury rigid magnetic box packaging</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonbon Collection Section -->
+    <section id="bonbons" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto space-y-3">
+            <span class="font-script text-mutedGold text-3xl sm:text-4xl block">Exquisite Flavours</span>
+            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-espresso tracking-widest uppercase">Artisanal Bonbon Collection</h2>
+            <div class="w-24 h-0.5 bg-mutedGold mx-auto my-3"></div>
+            <p class="text-espresso/80 font-garamond text-lg">
+                Explore our master chocolatier's signature bonbon creations. Each shell conceals layers of distinct aroma and decadence.
+            </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 my-10">
+            <button class="filter-btn active-filter px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold bg-espresso text-champagne transition-all" data-category="all">All Bonbons</button>
+            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="dark">Dark Ganache</button>
+            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="nutty">Nutty & Praline</button>
+            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="fruity">Fruity Infusions</button>
+            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="caramel">Salted Caramel</button>
+        </div>
+
+        <!-- Bonbon Grid Container -->
+        <div id="bonbonGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic JS items will populate here -->
+        </div>
+    </section>
+
+    <!-- Crafting Story Section -->
+    <section id="crafting" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Chocolatier crafting bonbons" 
+                         class="rounded-xl shadow-2xl border-2 border-mutedGold/40 object-cover h-[450px] w-full"
+                         onerror="this.src='https://placehold.co/800x800/2B1710/E9DCC9?text=Artisanal+Chocolatier'">
+                    
+                    <div class="absolute -bottom-6 -right-6 hidden sm:block bg-espresso text-champagne p-6 rounded-xl border border-mutedGold/40 shadow-xl max-w-xs">
+                        <p class="font-script text-mutedGold text-2xl">Made in Small Batches</p>
+                        <p class="text-xs font-garamond mt-1 text-champagne/80">Every single bonbon takes over 3 days of meticulous temper, painting, and setting.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <span class="font-script text-mutedGold text-3xl sm:text-4xl block">Behind The Shell</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-espresso tracking-widest uppercase">The Mastery of Bonbon Artistry</h2>
+                    <div class="w-20 h-0.5 bg-mutedGold"></div>
+
+                    <div class="space-y-4 font-garamond text-lg text-espresso/90 leading-relaxed">
+                        <p>
+                            At CACAOIRE, we treat bonbons as edible canvases. Our process begins with pure Valrhona dark chocolate shells temper-tuned to deliver a crisp, resonant snap upon bite.
+                        </p>
+                        <p>
+                            Inside, each shell holds cooked caramel made from French cultured butter, ganache infused with fresh botanical herbs, or nutty pralines slow-roasted to golden perfection.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 bg-champagne/40 rounded border border-mutedGold/30">
+                            <h4 class="font-cinzel font-semibold text-espresso text-sm">Natural Cocoa Butter Paints</h4>
+                            <p class="text-xs text-espresso/70 mt-1">Coloured using real fruit powders, matcha & spirulina.</p>
+                        </div>
+                        <div class="p-4 bg-champagne/40 rounded border border-mutedGold/30">
+                            <h4 class="font-cinzel font-semibold text-espresso text-sm">Zero Preservatives</h4>
+                            <p class="text-xs text-espresso/70 mt-1">Pure cocoa butter, fresh creams, and organic spices.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide-out Shopping Cart Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
+        <div id="cartBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+            <div class="w-screen max-w-md bg-espresso text-champagne border-l border-mutedGold/40 shadow-2xl flex flex-col">
+                
+                <!-- Drawer Header -->
+                <div class="p-6 border-b border-mutedGold/30 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-bag-shopping text-mutedGold text-lg"></i>
+                        <h2 class="font-cinzel font-bold text-lg tracking-wider text-champagne">Your Chocolate Box</h2>
+                    </div>
+                    <button id="closeCartBtn" class="p-2 text-champagne/70 hover:text-mutedGold">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Drawer Cart Items -->
+                <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <div id="emptyCartMsg" class="text-center py-12 space-y-3">
+                        <i class="fa-solid fa-box-open text-4xl text-mutedGold/40"></i>
+                        <p class="font-garamond text-lg text-champagne/70">Your chocolate box is currently empty.</p>
+                        <a href="#bonbons" onclick="toggleCart(false)" class="inline-block mt-2 px-6 py-2 bg-mutedGold text-espresso font-cinzel text-xs uppercase tracking-widest rounded">Select Bonbons</a>
+                    </div>
+                </div>
+
+                <!-- Drawer Footer -->
+                <div class="p-6 border-t border-mutedGold/30 bg-black/20 space-y-4">
+                    <div class="flex justify-between font-cinzel text-sm">
+                        <span class="text-champagne/70 uppercase tracking-widest">Subtotal</span>
+                        <span id="cartSubtotal" class="font-bold text-mutedGold">$0.00</span>
+                    </div>
+                    <p class="text-[11px] text-champagne/60 font-garamond">Tax & temperature-insulated express shipping calculated at checkout.</p>
+                    <button onclick="checkout()" class="w-full py-4 bg-mutedGold hover:bg-goldHover text-espresso font-cinzel font-semibold uppercase tracking-widest text-xs rounded transition-all shadow-lg">
+                        Proceed To Checkout <i class="fa-solid fa-lock ml-2"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal for Bonbon Details -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm hidden">
+        <div class="bg-espresso border border-mutedGold/40 text-champagne rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-champagne/70 hover:text-mutedGold p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div id="quickViewContent" class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                <!-- JS Populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-espresso border-2 border-mutedGold text-champagne px-5 py-3 rounded-xl shadow-2xl flex items-center space-x-3 transition-all transform translate-y-24 opacity-0 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-mutedGold text-lg"></i>
+        <span id="toastMsg" class="font-cinzel text-xs tracking-wider">Item added to your box!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-espresso text-champagne border-t border-mutedGold/30 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-mutedGold/20">
+                
+                <!-- Brand Column -->
+                <div class="md:col-span-4 space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-7 h-7 text-mutedGold" viewBox="0 0 64 64" fill="none" stroke="currentColor">
+                            <path d="M32 6C18 18 10 38 32 58C54 38 46 18 32 6Z" stroke="#B08D57"/>
+                        </svg>
+                        <span class="font-cinzel text-2xl font-bold text-champagne tracking-widest">CACAOIRE</span>
+                    </div>
+                    <p class="font-garamond text-champagne/70 text-sm leading-relaxed max-w-sm">
+                        Crafting unforgettable chocolate moments with organic ingredients, sustainable cocoa sourcing, and timeless French chocolaterie techniques.
+                    </p>
+                    <div class="flex space-x-4 pt-2 text-mutedGold text-lg">
+                        <a href="#" class="hover:text-champagne transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-champagne transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="hover:text-champagne transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="md:col-span-2 space-y-3">
+                    <h4 class="font-cinzel text-xs uppercase tracking-widest text-mutedGold font-bold">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-champagne/80 font-sans">
+                        <li><a href="#home" class="hover:text-mutedGold">Home</a></li>
+                        <li><a href="#bonbons" class="hover:text-mutedGold">Bonbon Menu</a></li>
+                        <li><a href="#crafting" class="hover:text-mutedGold">Our Process</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Care -->
+                <div class="md:col-span-2 space-y-3">
+                    <h4 class="font-cinzel text-xs uppercase tracking-widest text-mutedGold font-bold">Customer Care</h4>
+                    <ul class="space-y-2 text-xs text-champagne/80 font-sans">
+                        <li><a href="#" class="hover:text-mutedGold">Temperature Guarantee</a></li>
+                        <li><a href="#" class="hover:text-mutedGold">Express Shipping</a></li>
+                        <li><a href="#" class="hover:text-mutedGold">Corporate Orders</a></li>
+                        <li><a href="#" class="hover:text-mutedGold">Contact Chocolatier</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="md:col-span-4 space-y-4">
+                    <h4 class="font-cinzel text-xs uppercase tracking-widest text-mutedGold font-bold">Seasonal Bonbon Releases</h4>
+                    <p class="text-xs text-champagne/70 font-garamond">Subscribe to receive invitation-only early access to our limited micro-batch releases.</p>
+                    <form onsubmit="event.preventDefault(); showToast('Subscribed to seasonal releases!');" class="flex gap-2">
+                        <input type="email" placeholder="Your email address" required 
+                               class="bg-espresso/80 border border-mutedGold/40 text-champagne px-3 py-2 rounded text-xs focus:outline-none focus:border-mutedGold flex-1">
+                        <button type="submit" class="bg-mutedGold text-espresso px-4 py-2 font-cinzel text-xs font-bold uppercase rounded hover:bg-goldHover">
+                            Join
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-champagne/50 font-garamond">
+                <p>© 2026 CACAOIRE CHOCOLATES. Sweet Moments, Better Days. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-mutedGold">Privacy Policy</a>
+                    <a href="#" class="hover:text-mutedGold">Terms of Service</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        // Bonbons Database
+        const bonbons = [
+            {
+                id: 'b1',
+                name: 'Gold Leaf Hazelnut Praline',
+                category: 'nutty',
+                price: 3.75,
+                image: 'https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=600&q=80',
+                description: 'Slow-roasted Piedmont hazelnut praline encased in a 66% dark chocolate shell decorated with edible 24k gold leaf.',
+                notes: ['Roasted Hazelnut', 'Piedmont Praline', 'Dark Ganache'],
+                tag: 'Signature'
+            },
+            {
+                id: 'b2',
+                name: 'Dark Ganache & Fleur De Sel',
+                category: 'dark',
+                price: 3.50,
+                image: 'https://images.unsplash.com/photo-1526080652727-5b77f74eada2?auto=format&fit=crop&w=600&q=80',
+                description: '72% Single-Origin Venezuelan cacao ganache topped with hand-harvested French sea salt crystals.',
+                notes: ['Venezuelan Cacao', 'Sea Salt', 'Bittersweet'],
+                tag: 'Bestseller'
+            },
+            {
+                id: 'b3',
+                name: 'Passion Fruit & Raspberry',
+                category: 'fruity',
+                price: 3.80,
+                image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80',
+                description: 'Tart Ecuadorian passion fruit reduction paired with fresh raspberry gel inside a painted milk chocolate shell.',
+                notes: ['Tropical Fruit', 'Raspberry Gel', 'Tart & Sweet'],
+                tag: 'Award Winner'
+            },
+            {
+                id: 'b4',
+                name: 'Espresso Vanilla Bean',
+                category: 'dark',
+                price: 3.60,
+                image: 'https://images.unsplash.com/photo-1575372145700-1d898a3b83c5?auto=format&fit=crop&w=600&q=80',
+                description: 'Dark roasted Arabica espresso infusion combined with Madagascar Tahitian vanilla bean white chocolate ganache.',
+                notes: ['Roasted Espresso', 'Tahitian Vanilla', 'Silky'],
+                tag: 'Chef Choice'
+            },
+            {
+                id: 'b5',
+                name: 'Salted Caramel Truffle',
+                category: 'caramel',
+                price: 3.50,
+                image: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80',
+                description: 'Slow-cooked golden salted butter caramel in a crisp dark cocoa butter painted shell.',
+                notes: ['French Butter', 'Golden Caramel', 'Velvety'],
+                tag: 'Popular'
+            },
+            {
+                id: 'b6',
+                name: 'Pistachio Cream & Rose',
+                category: 'nutty',
+                price: 3.90,
+                image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
+                description: 'Sicilian Bronte pistachio paste mixed with white chocolate and a subtle hint of organic rosewater.',
+                notes: ['Bronte Pistachio', 'Organic Rose', 'Creamy'],
+                tag: 'New'
+            }
+        ];
+
+        // Shopping Cart State
+        let cart = [];
+
+        // On DOM Loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBonbonGrid('all');
+            setupFilterButtons();
+            setupCartDrawer();
+        });
+
+        // Render Bonbon Collection Cards
+        function renderBonbonGrid(filterCategory) {
+            const grid = document.getElementById('bonbonGrid');
+            grid.innerHTML = '';
+
+            const filtered = filterCategory === 'all' 
+                ? bonbons 
+                : bonbons.filter(b => b.category === filterCategory);
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'group bg-champagne/20 rounded-xl overflow-hidden border border-mutedGold/30 hover:border-mutedGold transition-all duration-300 shadow-md hover:shadow-2xl flex flex-col justify-between';
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="relative overflow-hidden h-56 bg-espresso">
+                            <img src="${item.image}" alt="${item.name}" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 brightness-95 group-hover:brightness-100"
+                                 onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
+                            <span class="absolute top-3 left-3 bg-espresso/90 border border-mutedGold/50 text-mutedGold text-[10px] font-cinzel tracking-widest font-bold px-2.5 py-1 rounded">
+                                ${item.tag}
+                            </span>
+                            <button onclick="openQuickView('${item.id}')" class="absolute bottom-3 right-3 bg-mutedGold text-espresso px-3 py-1.5 rounded text-xs font-cinzel font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity shadow">
+                                Quick View
+                            </button>
+                        </div>
+
+                        <div class="p-5 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-cinzel font-bold text-espresso text-base">${item.name}</h3>
+                                <span class="font-cinzel font-bold text-mutedGold text-sm">$${item.price.toFixed(2)}</span>
+                            </div>
+
+                            <p class="text-xs text-espresso/70 font-garamond line-clamp-2">${item.description}</p>
+
+                            <div class="flex flex-wrap gap-1 pt-1">
+                                ${item.notes.map(note => `<span class="text-[9px] bg-mutedGold/15 border border-mutedGold/30 text-espresso px-2 py-0.5 rounded font-sans">${note}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-5 pb-5 pt-2">
+                        <button onclick="addToCart('${item.id}')" class="w-full py-2.5 bg-espresso hover:bg-mutedGold hover:text-espresso text-champagne font-cinzel text-xs uppercase tracking-widest font-semibold rounded border border-mutedGold/40 transition-all">
+                            Add To Box
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Buttons Switcher
+        function setupFilterButtons() {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => {
+                        b.classList.remove('bg-espresso', 'text-champagne');
+                        b.classList.add('bg-champagne/50', 'text-espresso');
+                    });
+                    btn.classList.remove('bg-champagne/50', 'text-espresso');
+                    btn.classList.add('bg-espresso', 'text-champagne');
+
+                    const category = btn.getAttribute('data-category');
+                    renderBonbonGrid(category);
+                });
+            });
+        }
+
+        // Cart Functions
+        function addToCart(bonbonId) {
+            const item = bonbons.find(b => b.id === bonbonId);
+            if (!item) return;
+
+            const existing = cart.find(i => i.id === bonbonId);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast(`Added ${item.name} to box!`);
+        }
+
+        function updateCartUI() {
+            const countEl = document.getElementById('cartCount');
+            const container = document.getElementById('cartItemsContainer');
+            const subtotalEl = document.getElementById('cartSubtotal');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            countEl.innerText = totalItems;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 space-y-3">
+                        <i class="fa-solid fa-box-open text-4xl text-mutedGold/40"></i>
+                        <p class="font-garamond text-lg text-champagne/70">Your chocolate box is currently empty.</p>
+                    </div>
+                `;
+                subtotalEl.innerText = '$0.00';
+                return;
+            }
+
+            let subtotal = 0;
+            container.innerHTML = '';
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+
+                const row = document.createElement('div');
+                row.className = 'flex items-center space-x-3 bg-black/30 p-3 rounded-lg border border-mutedGold/20';
+                row.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded border border-mutedGold/40"
+                         onerror="this.src='https://placehold.co/100x100/2B1710/E9DCC9?text=Bonbon'">
+                    <div class="flex-1">
+                        <h4 class="font-cinzel text-xs font-semibold text-champagne">${item.name}</h4>
+                        <span class="text-xs text-mutedGold font-bold">$${item.price.toFixed(2)}</span>
+                        <div class="flex items-center space-x-2 mt-1">
+                            <button onclick="changeQty('${item.id}', -1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">-</button>
+                            <span class="text-xs font-sans">${item.qty}</span>
+                            <button onclick="changeQty('${item.id}', 1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeItem('${item.id}')" class="text-champagne/40 hover:text-red-400 p-1">
+                        <i class="fa-solid fa-trash text-sm"></i>
+                    </button>
+                `;
+                container.appendChild(row);
+            });
+
+            subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
+        }
+
+        function removeItem(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        // Drawer Controls
+        function setupCartDrawer() {
+            const cartBtn = document.getElementById('cartBtn');
+            const closeCartBtn = document.getElementById('closeCartBtn');
+            const backdrop = document.getElementById('cartBackdrop');
+            const drawer = document.getElementById('cartDrawer');
+
+            cartBtn.addEventListener('click', () => toggleCart(true));
+            closeCartBtn.addEventListener('click', () => toggleCart(false));
+            backdrop.addEventListener('click', () => toggleCart(false));
+
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        function toggleCart(open) {
+            const drawer = document.getElementById('cartDrawer');
+            if (open) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                drawer.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // Quick View Modal
+        function openQuickView(id) {
+            const item = bonbons.find(b => b.id === id);
+            if (!item) return;
+
+            const content = document.getElementById('quickViewContent');
+            content.innerHTML = `
+                <div>
+                    <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-cover rounded-xl border border-mutedGold/40"
+                         onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
+                </div>
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-widest text-mutedGold font-cinzel font-bold">${item.tag} Bonbon</span>
+                    <h3 class="font-cinzel text-2xl font-bold text-champagne">${item.name}</h3>
+                    <p class="font-garamond text-base text-champagne/80">${item.description}</p>
+                    <div class="font-cinzel text-xl font-bold text-mutedGold">$${item.price.toFixed(2)}</div>
+                    <button onclick="addToCart('${item.id}'); closeQuickView();" class="w-full py-3 bg-mutedGold text-espresso font-cinzel font-bold uppercase tracking-widest text-xs rounded hover:bg-goldHover">
+                        Add To Chocolate Box
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('quickViewModal').classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.add('hidden');
+        }
+
+        function checkout() {
+            if (cart.length === 0) return;
+            showToast('Redirecting to secure encrypted checkout...');
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = msg;
+
+            toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
