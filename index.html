@@ -130,10 +130,10 @@
                     <button class="p-2 hover:text-mutedGold transition-colors hidden sm:block" title="Account">
                         <i class="fa-regular fa-user text-lg"></i>
                     </button>
-                    <!-- <button id="cartBtn" class="p-2 hover:text-mutedGold transition-colors relative" title="Shopping Box">
+                    <button id="cartBtn" class="p-2 hover:text-mutedGold transition-colors relative" title="Shopping Box">
                         <i class="fa-solid fa-bag-shopping text-xl"></i>
                         <span id="cartCount" class="absolute -top-1 -right-1 bg-mutedGold text-espresso text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                    </button> -->
+                    </button>
                     <button id="mobileMenuBtn" class="p-2 md:hidden hover:text-mutedGold">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
@@ -565,33 +565,33 @@
                 card.innerHTML = `
                     <div>
                         <div class="relative overflow-hidden h-56 bg-espresso">
-                            <img src="rs.{item.image}" alt="rs.{item.name}" 
+                            <img src="${item.image}" alt="${item.name}"
                                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 brightness-95 group-hover:brightness-100"
-                                 onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=rs.{encodeURIComponent(item.name)}'">
+                                 onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
                             <span class="absolute top-3 left-3 bg-espresso/90 border border-mutedGold/50 text-mutedGold text-[10px] font-cinzel tracking-widest font-bold px-2.5 py-1 rounded">
-                                rs.{item.tag}
+                                ${item.tag}
                             </span>
-                            <button onclick="openQuickView('rs.{item.id}')" class="absolute bottom-3 right-3 bg-mutedGold text-espresso px-3 py-1.5 rounded text-xs font-cinzel font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity shadow">
+                            <button onclick="openQuickView('${item.id}')" class="absolute bottom-3 right-3 bg-mutedGold text-espresso px-3 py-1.5 rounded text-xs font-cinzel font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity shadow">
                                 Quick View
                             </button>
                         </div>
 
                         <div class="p-5 space-y-3">
                             <div class="flex justify-between items-start">
-                                <h3 class="font-cinzel font-bold text-espresso text-base">rs.{item.name}</h3>
-                                <span class="font-cinzel font-bold text-mutedGold text-sm">rs.{item.price.toFixed(2)}</span>
+                                <h3 class="font-cinzel font-bold text-espresso text-base">${item.name}</h3>
+                                <span class="font-cinzel font-bold text-mutedGold text-sm">₹${item.price.toFixed(2)}</span>
                             </div>
 
-                            <p class="text-xs text-espresso/70 font-garamond line-clamp-2">rs.{item.description}</p>
+                            <p class="text-xs text-espresso/70 font-garamond line-clamp-2">${item.description}</p>
 
                             <div class="flex flex-wrap gap-1 pt-1">
-                                rs.{item.notes.map(note => `<span class="text-[9px] bg-mutedGold/15 border border-mutedGold/30 text-espresso px-2 py-0.5 rounded font-sans">rs.{note}</span>`).join('')}
+                                ${item.notes.map(note => `<span class="text-[9px] bg-mutedGold/15 border border-mutedGold/30 text-espresso px-2 py-0.5 rounded font-sans">${note}</span>`).join('')}
                             </div>
                         </div>
                     </div>
 
                     <div class="px-5 pb-5 pt-2">
-                        <button onclick="addToCart('rs.{item.id}')" class="w-full py-2.5 bg-espresso hover:bg-mutedGold hover:text-espresso text-champagne font-cinzel text-xs uppercase tracking-widest font-semibold rounded border border-mutedGold/40 transition-all">
+                        <button onclick="addToCart('${item.id}')" class="w-full py-2.5 bg-espresso hover:bg-mutedGold hover:text-espresso text-champagne font-cinzel text-xs uppercase tracking-widest font-semibold rounded border border-mutedGold/40 transition-all">
                             Add To Box
                         </button>
                     </div>
@@ -631,7 +631,7 @@
             }
 
             updateCartUI();
-            showToast(`Added rs.{item.name} to box!`);
+            showToast(`Added ${item.name} to box!`);
         }
 
         function updateCartUI() {
@@ -649,7 +649,7 @@
                         <p class="font-garamond text-lg text-champagne/70">Your chocolate box is currently empty.</p>
                     </div>
                 `;
-                subtotalEl.innerText = 'rs.0.00';
+                subtotalEl.innerText = '₹0.00';
                 return;
             }
 
@@ -663,25 +663,25 @@
                 const row = document.createElement('div');
                 row.className = 'flex items-center space-x-3 bg-black/30 p-3 rounded-lg border border-mutedGold/20';
                 row.innerHTML = `
-                    <img src="rs.{item.image}" alt="rs.{item.name}" class="w-14 h-14 object-cover rounded border border-mutedGold/40"
+                    <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded border border-mutedGold/40"
                          onerror="this.src='https://placehold.co/100x100/2B1710/E9DCC9?text=Bonbon'">
                     <div class="flex-1">
-                        <h4 class="font-cinzel text-xs font-semibold text-champagne">rs.{item.name}</h4>
-                        <span class="text-xs text-mutedGold font-bold">rs.{item.price.toFixed(2)}</span>
+                        <h4 class="font-cinzel text-xs font-semibold text-champagne">${item.name}</h4>
+                        <span class="text-xs text-mutedGold font-bold">₹${item.price.toFixed(2)}</span>
                         <div class="flex items-center space-x-2 mt-1">
-                            <button onclick="changeQty('rs.{item.id}', -1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">-</button>
-                            <span class="text-xs font-sans">rs.{item.qty}</span>
-                            <button onclick="changeQty('rs.{item.id}', 1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">+</button>
+                            <button onclick="changeQty('${item.id}', -1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">-</button>
+                            <span class="text-xs font-sans">${item.qty}</span>
+                            <button onclick="changeQty('${item.id}', 1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">+</button>
                         </div>
                     </div>
-                    <button onclick="removeItem('rs.{item.id}')" class="text-champagne/40 hover:text-red-400 p-1">
+                    <button onclick="removeItem('${item.id}')" class="text-champagne/40 hover:text-red-400 p-1">
                         <i class="fa-solid fa-trash text-sm"></i>
                     </button>
                 `;
                 container.appendChild(row);
             });
 
-            subtotalEl.innerText = `rs.{subtotal.toFixed(2)}`;
+            subtotalEl.innerText = `₹${subtotal.toFixed(2)}`;
         }
 
         function changeQty(id, delta) {
@@ -735,15 +735,15 @@
             const content = document.getElementById('quickViewContent');
             content.innerHTML = `
                 <div>
-                    <img src="rs.{item.image}" alt="rs.{item.name}" class="w-full h-64 object-cover rounded-xl border border-mutedGold/40"
-                         onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=rs.{encodeURIComponent(item.name)}'">
+                    <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-cover rounded-xl border border-mutedGold/40"
+                         onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
                 </div>
                 <div class="space-y-4">
-                    <span class="text-xs uppercase tracking-widest text-mutedGold font-cinzel font-bold">rs.{item.tag} Bonbon</span>
-                    <h3 class="font-cinzel text-2xl font-bold text-champagne">rs.{item.name}</h3>
-                    <p class="font-garamond text-base text-champagne/80">rs.{item.description}</p>
-                    <div class="font-cinzel text-xl font-bold text-mutedGold">rs.{item.price.toFixed(2)}</div>
-                    <button onclick="addToCart('rs.{item.id}'); closeQuickView();" class="w-full py-3 bg-mutedGold text-espresso font-cinzel font-bold uppercase tracking-widest text-xs rounded hover:bg-goldHover">
+                    <span class="text-xs uppercase tracking-widest text-mutedGold font-cinzel font-bold">${item.tag} Bonbon</span>
+                    <h3 class="font-cinzel text-2xl font-bold text-champagne">${item.name}</h3>
+                    <p class="font-garamond text-base text-champagne/80">${item.description}</p>
+                    <div class="font-cinzel text-xl font-bold text-mutedGold">₹${item.price.toFixed(2)}</div>
+                    <button onclick="addToCart('${item.id}'); closeQuickView();" class="w-full py-3 bg-mutedGold text-espresso font-cinzel font-bold uppercase tracking-widest text-xs rounded hover:bg-goldHover">
                         Add To Chocolate Box
                     </button>
                 </div>
