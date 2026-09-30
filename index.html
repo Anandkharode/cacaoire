@@ -482,7 +482,7 @@
                 name: 'Royal Cashew Jaggery',
                 category: 'nutty',
                 price: 300,
-                image: 'images\\royal_jaggery.png',
+                image: 'images/royal_jaggery.png',
                 description: 'Slow-roasted Piedmont Cashew praline encased in a 66% dark chocolate decorated shell.',
                 notes: ['Roasted Cashew', 'Jaggery', 'Dark Ganache'],
                 tag: 'Signature'
@@ -492,7 +492,7 @@
                 name: 'Mango Chili Crush',
                 category: 'fruity',
                 price: 300,
-                image: 'images\\mango.png',
+                image: 'images/mango.png',
                 description: '72% Single-Origin Venezuelan cacao ganache topped with hand-harvested mango pieces.',
                 notes: ['Venezuelan Cacao', 'Sea Salt', 'Bittersweet'],
                 tag: 'Bestseller'
@@ -502,7 +502,7 @@
                 name: 'Coffee Date',
                 category: 'coffee',
                 price: 300,
-                image: 'images\\coffee_date.png',
+                image: 'images/coffee date.png',
                 description: 'Tart Ecuadorian passion fruit reduction paired with fresh raspberry gel inside a painted milk chocolate shell.',
                 notes: ['coffee', 'Dates', 'Tart & Sweet'],
                 tag: 'Award Winner'
@@ -512,7 +512,7 @@
                 name: 'Midnight Romance',
                 category: 'dark',
                 price: 300,
-                image: 'images\\midnight_romance.png',
+                image: 'images/romance.png',
                 description: 'Dark roasted Arabica espresso infusion combined with Madagascar Tahitian vanilla bean white chocolate ganache.',
                 notes: ['Roasted Espresso', 'Tahitian Vanilla', 'Silky'],
                 tag: 'Chef Choice'
@@ -522,7 +522,7 @@
                 name: 'Pista Kunafa Dream',
                 category: 'nutty',
                 price: 300,
-                image: 'images\\pista_kunafa.png',
+                image: 'images/kunafa.png',
                 description: 'Slow-cooked golden salted butter caramel in a crisp dark cocoa butter painted shell.',
                 notes: ['French Butter', 'Golden Caramel', 'Velvety'],
                 tag: 'Popular'
@@ -532,7 +532,7 @@
                 name: 'Pistachio Cream & Rose',
                 category: 'nutty',
                 price: 300,
-                image: 'images\\pistachio_cream_rose.png',
+                image: 'images/pista.png',
                 description: 'Sicilian Bronte pistachio paste mixed with white chocolate and a subtle hint of organic rosewater.',
                 notes: ['Bronte Pistachio', 'Organic Rose', 'Creamy'],
                 tag: 'New'
@@ -566,7 +566,7 @@
                     <div>
                         <div class="relative overflow-hidden h-56 bg-espresso">
                             <img src="${item.image}" alt="${item.name}"
-                                 class="w-full h-full object-contain bg-champagne/20 group-hover:scale-105 transition-transform duration-500"
+                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                                  onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
                             <span class="absolute top-3 left-3 bg-espresso/90 border border-mutedGold/50 text-mutedGold text-[10px] font-cinzel tracking-widest font-bold px-2.5 py-1 rounded">
                                 ${item.tag}
