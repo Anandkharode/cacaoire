@@ -564,9 +564,9 @@
                 
                 card.innerHTML = `
                     <div>
-                        <div class="relative overflow-hidden h-56 bg-espresso">
+                        <div class="relative overflow-hidden bg-espresso">
                             <img src="${item.image}" alt="${item.name}"
-                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                                 class="w-full h-auto block transition-transform duration-500"
                                  onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
                             <span class="absolute top-3 left-3 bg-espresso/90 border border-mutedGold/50 text-mutedGold text-[10px] font-cinzel tracking-widest font-bold px-2.5 py-1 rounded">
                                 ${item.tag}
