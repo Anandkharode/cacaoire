@@ -88,7 +88,7 @@
 
     <!-- Top Announcement Bar -->
     <div class="bg-espresso text-champagne text-xs uppercase tracking-widest py-2.5 px-4 text-center border-b border-mutedGold/30">
-        <p class="font-medium">✨ Premium Handcrafted Bonbons For Every Occasion — Free Worldwide Express Shipping On Orders Over $100 ✨</p>
+        <p class="font-medium">✨ Premium Handcrafted Bonbons For Every Occasion — Free Worldwide Express Shipping On Orders Over rs.1000 ✨</p>
     </div>
 
     <!-- Header Navigation -->
@@ -130,10 +130,10 @@
                     <button class="p-2 hover:text-mutedGold transition-colors hidden sm:block" title="Account">
                         <i class="fa-regular fa-user text-lg"></i>
                     </button>
-                    <button id="cartBtn" class="p-2 hover:text-mutedGold transition-colors relative" title="Shopping Box">
+                    <!-- <button id="cartBtn" class="p-2 hover:text-mutedGold transition-colors relative" title="Shopping Box">
                         <i class="fa-solid fa-bag-shopping text-xl"></i>
                         <span id="cartCount" class="absolute -top-1 -right-1 bg-mutedGold text-espresso text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                    </button>
+                    </button> -->
                     <button id="mobileMenuBtn" class="p-2 md:hidden hover:text-mutedGold">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
@@ -215,7 +215,7 @@
                                     <span class="text-[10px] font-bold uppercase tracking-widest text-mutedGold block">Featured Creation</span>
                                     <h3 class="font-cinzel font-bold text-base text-espresso">Signature Gold Hazelnut Bonbon</h3>
                                 </div>
-                                <span class="font-cinzel font-bold text-espresso bg-mutedGold/20 px-3 py-1 rounded text-sm">$3.50 / ea</span>
+                                <span class="font-cinzel font-bold text-espresso bg-mutedGold/20 px-3 py-1 rounded text-sm">rs.3.50 / ea</span>
                             </div>
                         </div>
                     </div>
@@ -281,10 +281,11 @@
         <!-- Category Filters -->
         <div class="flex flex-wrap justify-center gap-2 sm:gap-4 my-10">
             <button class="filter-btn active-filter px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold bg-espresso text-champagne transition-all" data-category="all">All Bonbons</button>
-            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="dark">Dark Ganache</button>
-            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="nutty">Nutty & Praline</button>
-            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="fruity">Fruity Infusions</button>
-            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="caramel">Salted Caramel</button>
+            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="dark">Royal Cashew Jaggery</button>
+            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="nutty">Mango Chili Crush
+</button>
+            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="fruity">Coffee Date</button>
+            <button class="filter-btn px-5 py-2 text-xs uppercase tracking-widest font-cinzel rounded border border-mutedGold/40 bg-champagne/50 text-espresso hover:bg-espresso hover:text-champagne transition-all" data-category="caramel">Pista Kunafa Dream</button>
         </div>
 
         <!-- Bonbon Grid Container -->
@@ -371,7 +372,7 @@
                 <div class="p-6 border-t border-mutedGold/30 bg-black/20 space-y-4">
                     <div class="flex justify-between font-cinzel text-sm">
                         <span class="text-champagne/70 uppercase tracking-widest">Subtotal</span>
-                        <span id="cartSubtotal" class="font-bold text-mutedGold">$0.00</span>
+                        <span id="cartSubtotal" class="font-bold text-mutedGold">rs.0.00</span>
                     </div>
                     <p class="text-[11px] text-champagne/60 font-garamond">Tax & temperature-insulated express shipping calculated at checkout.</p>
                     <button onclick="checkout()" class="w-full py-4 bg-mutedGold hover:bg-goldHover text-espresso font-cinzel font-semibold uppercase tracking-widest text-xs rounded transition-all shadow-lg">
@@ -478,39 +479,39 @@
         const bonbons = [
             {
                 id: 'b1',
-                name: 'Gold Leaf Hazelnut Praline',
+                name: 'Royal Cashew Jaggery',
                 category: 'nutty',
-                price: 3.75,
+                //price: 3.75,
                 image: 'https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=600&q=80',
-                description: 'Slow-roasted Piedmont hazelnut praline encased in a 66% dark chocolate shell decorated with edible 24k gold leaf.',
-                notes: ['Roasted Hazelnut', 'Piedmont Praline', 'Dark Ganache'],
+                description: 'Slow-roasted Piedmont Cashew praline encased in a 66% dark chocolate decorated shell.',
+                notes: ['Roasted Cashew', 'Jaggery', 'Dark Ganache'],
                 tag: 'Signature'
             },
             {
                 id: 'b2',
-                name: 'Dark Ganache & Fleur De Sel',
-                category: 'dark',
-                price: 3.50,
+                name: 'Mango Chili Crush',
+                category: 'fruity',
+               // price: 3.50,
                 image: 'https://images.unsplash.com/photo-1526080652727-5b77f74eada2?auto=format&fit=crop&w=600&q=80',
-                description: '72% Single-Origin Venezuelan cacao ganache topped with hand-harvested French sea salt crystals.',
+                description: '72% Single-Origin Venezuelan cacao ganache topped with hand-harvested mango pieces.',
                 notes: ['Venezuelan Cacao', 'Sea Salt', 'Bittersweet'],
                 tag: 'Bestseller'
             },
             {
                 id: 'b3',
-                name: 'Passion Fruit & Raspberry',
-                category: 'fruity',
-                price: 3.80,
+                name: 'Coffee Date',
+                category: 'coffee',
+                //price: 3.80,
                 image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80',
                 description: 'Tart Ecuadorian passion fruit reduction paired with fresh raspberry gel inside a painted milk chocolate shell.',
-                notes: ['Tropical Fruit', 'Raspberry Gel', 'Tart & Sweet'],
+                notes: ['coffee', 'Dates', 'Tart & Sweet'],
                 tag: 'Award Winner'
             },
             {
                 id: 'b4',
-                name: 'Espresso Vanilla Bean',
+                name: 'Midnight Romance',
                 category: 'dark',
-                price: 3.60,
+               // price: 3.60,
                 image: 'https://images.unsplash.com/photo-1575372145700-1d898a3b83c5?auto=format&fit=crop&w=600&q=80',
                 description: 'Dark roasted Arabica espresso infusion combined with Madagascar Tahitian vanilla bean white chocolate ganache.',
                 notes: ['Roasted Espresso', 'Tahitian Vanilla', 'Silky'],
@@ -518,9 +519,9 @@
             },
             {
                 id: 'b5',
-                name: 'Salted Caramel Truffle',
-                category: 'caramel',
-                price: 3.50,
+                name: 'Pista Kunafa Dream',
+                category: 'nutty',
+                //price: 3.50,
                 image: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80',
                 description: 'Slow-cooked golden salted butter caramel in a crisp dark cocoa butter painted shell.',
                 notes: ['French Butter', 'Golden Caramel', 'Velvety'],
@@ -530,7 +531,7 @@
                 id: 'b6',
                 name: 'Pistachio Cream & Rose',
                 category: 'nutty',
-                price: 3.90,
+                //price: 3.90,
                 image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
                 description: 'Sicilian Bronte pistachio paste mixed with white chocolate and a subtle hint of organic rosewater.',
                 notes: ['Bronte Pistachio', 'Organic Rose', 'Creamy'],
@@ -564,33 +565,33 @@
                 card.innerHTML = `
                     <div>
                         <div class="relative overflow-hidden h-56 bg-espresso">
-                            <img src="${item.image}" alt="${item.name}" 
+                            <img src="rs.{item.image}" alt="rs.{item.name}" 
                                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 brightness-95 group-hover:brightness-100"
-                                 onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
+                                 onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=rs.{encodeURIComponent(item.name)}'">
                             <span class="absolute top-3 left-3 bg-espresso/90 border border-mutedGold/50 text-mutedGold text-[10px] font-cinzel tracking-widest font-bold px-2.5 py-1 rounded">
-                                ${item.tag}
+                                rs.{item.tag}
                             </span>
-                            <button onclick="openQuickView('${item.id}')" class="absolute bottom-3 right-3 bg-mutedGold text-espresso px-3 py-1.5 rounded text-xs font-cinzel font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity shadow">
+                            <button onclick="openQuickView('rs.{item.id}')" class="absolute bottom-3 right-3 bg-mutedGold text-espresso px-3 py-1.5 rounded text-xs font-cinzel font-bold uppercase opacity-0 group-hover:opacity-100 transition-opacity shadow">
                                 Quick View
                             </button>
                         </div>
 
                         <div class="p-5 space-y-3">
                             <div class="flex justify-between items-start">
-                                <h3 class="font-cinzel font-bold text-espresso text-base">${item.name}</h3>
-                                <span class="font-cinzel font-bold text-mutedGold text-sm">$${item.price.toFixed(2)}</span>
+                                <h3 class="font-cinzel font-bold text-espresso text-base">rs.{item.name}</h3>
+                                <span class="font-cinzel font-bold text-mutedGold text-sm">rs.{item.price.toFixed(2)}</span>
                             </div>
 
-                            <p class="text-xs text-espresso/70 font-garamond line-clamp-2">${item.description}</p>
+                            <p class="text-xs text-espresso/70 font-garamond line-clamp-2">rs.{item.description}</p>
 
                             <div class="flex flex-wrap gap-1 pt-1">
-                                ${item.notes.map(note => `<span class="text-[9px] bg-mutedGold/15 border border-mutedGold/30 text-espresso px-2 py-0.5 rounded font-sans">${note}</span>`).join('')}
+                                rs.{item.notes.map(note => `<span class="text-[9px] bg-mutedGold/15 border border-mutedGold/30 text-espresso px-2 py-0.5 rounded font-sans">rs.{note}</span>`).join('')}
                             </div>
                         </div>
                     </div>
 
                     <div class="px-5 pb-5 pt-2">
-                        <button onclick="addToCart('${item.id}')" class="w-full py-2.5 bg-espresso hover:bg-mutedGold hover:text-espresso text-champagne font-cinzel text-xs uppercase tracking-widest font-semibold rounded border border-mutedGold/40 transition-all">
+                        <button onclick="addToCart('rs.{item.id}')" class="w-full py-2.5 bg-espresso hover:bg-mutedGold hover:text-espresso text-champagne font-cinzel text-xs uppercase tracking-widest font-semibold rounded border border-mutedGold/40 transition-all">
                             Add To Box
                         </button>
                     </div>
@@ -630,7 +631,7 @@
             }
 
             updateCartUI();
-            showToast(`Added ${item.name} to box!`);
+            showToast(`Added rs.{item.name} to box!`);
         }
 
         function updateCartUI() {
@@ -648,7 +649,7 @@
                         <p class="font-garamond text-lg text-champagne/70">Your chocolate box is currently empty.</p>
                     </div>
                 `;
-                subtotalEl.innerText = '$0.00';
+                subtotalEl.innerText = 'rs.0.00';
                 return;
             }
 
@@ -662,25 +663,25 @@
                 const row = document.createElement('div');
                 row.className = 'flex items-center space-x-3 bg-black/30 p-3 rounded-lg border border-mutedGold/20';
                 row.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded border border-mutedGold/40"
+                    <img src="rs.{item.image}" alt="rs.{item.name}" class="w-14 h-14 object-cover rounded border border-mutedGold/40"
                          onerror="this.src='https://placehold.co/100x100/2B1710/E9DCC9?text=Bonbon'">
                     <div class="flex-1">
-                        <h4 class="font-cinzel text-xs font-semibold text-champagne">${item.name}</h4>
-                        <span class="text-xs text-mutedGold font-bold">$${item.price.toFixed(2)}</span>
+                        <h4 class="font-cinzel text-xs font-semibold text-champagne">rs.{item.name}</h4>
+                        <span class="text-xs text-mutedGold font-bold">rs.{item.price.toFixed(2)}</span>
                         <div class="flex items-center space-x-2 mt-1">
-                            <button onclick="changeQty('${item.id}', -1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">-</button>
-                            <span class="text-xs font-sans">${item.qty}</span>
-                            <button onclick="changeQty('${item.id}', 1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">+</button>
+                            <button onclick="changeQty('rs.{item.id}', -1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">-</button>
+                            <span class="text-xs font-sans">rs.{item.qty}</span>
+                            <button onclick="changeQty('rs.{item.id}', 1)" class="w-5 h-5 bg-mutedGold/20 text-champagne text-xs rounded flex items-center justify-center hover:bg-mutedGold hover:text-espresso">+</button>
                         </div>
                     </div>
-                    <button onclick="removeItem('${item.id}')" class="text-champagne/40 hover:text-red-400 p-1">
+                    <button onclick="removeItem('rs.{item.id}')" class="text-champagne/40 hover:text-red-400 p-1">
                         <i class="fa-solid fa-trash text-sm"></i>
                     </button>
                 `;
                 container.appendChild(row);
             });
 
-            subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+            subtotalEl.innerText = `rs.{subtotal.toFixed(2)}`;
         }
 
         function changeQty(id, delta) {
@@ -734,15 +735,15 @@
             const content = document.getElementById('quickViewContent');
             content.innerHTML = `
                 <div>
-                    <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-cover rounded-xl border border-mutedGold/40"
-                         onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=${encodeURIComponent(item.name)}'">
+                    <img src="rs.{item.image}" alt="rs.{item.name}" class="w-full h-64 object-cover rounded-xl border border-mutedGold/40"
+                         onerror="this.src='https://placehold.co/600x600/2B1710/E9DCC9?text=rs.{encodeURIComponent(item.name)}'">
                 </div>
                 <div class="space-y-4">
-                    <span class="text-xs uppercase tracking-widest text-mutedGold font-cinzel font-bold">${item.tag} Bonbon</span>
-                    <h3 class="font-cinzel text-2xl font-bold text-champagne">${item.name}</h3>
-                    <p class="font-garamond text-base text-champagne/80">${item.description}</p>
-                    <div class="font-cinzel text-xl font-bold text-mutedGold">$${item.price.toFixed(2)}</div>
-                    <button onclick="addToCart('${item.id}'); closeQuickView();" class="w-full py-3 bg-mutedGold text-espresso font-cinzel font-bold uppercase tracking-widest text-xs rounded hover:bg-goldHover">
+                    <span class="text-xs uppercase tracking-widest text-mutedGold font-cinzel font-bold">rs.{item.tag} Bonbon</span>
+                    <h3 class="font-cinzel text-2xl font-bold text-champagne">rs.{item.name}</h3>
+                    <p class="font-garamond text-base text-champagne/80">rs.{item.description}</p>
+                    <div class="font-cinzel text-xl font-bold text-mutedGold">rs.{item.price.toFixed(2)}</div>
+                    <button onclick="addToCart('rs.{item.id}'); closeQuickView();" class="w-full py-3 bg-mutedGold text-espresso font-cinzel font-bold uppercase tracking-widest text-xs rounded hover:bg-goldHover">
                         Add To Chocolate Box
                     </button>
                 </div>
