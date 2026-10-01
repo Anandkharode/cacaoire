@@ -152,9 +152,7 @@
                     <button id="searchBtn" type="button" class="p-2 hover:text-mutedGold transition-colors" title="Search" aria-label="Search bonbons">
                         <i class="fa-solid fa-magnifying-glass text-lg"></i>
                     </button>
-                    <button id="accountBtn" type="button" class="p-2 hover:text-mutedGold transition-colors hidden sm:block" title="Account" aria-label="Account">
-                        <i class="fa-regular fa-user text-lg"></i>
-                    </button>
+                  
                     <button id="cartBtn" type="button" class="p-2 hover:text-mutedGold transition-colors relative" title="Shopping Box" aria-label="Open shopping box">
                         <i class="fa-solid fa-bag-shopping text-xl"></i>
                         <span id="cartCount" class="absolute -top-1 -right-1 bg-mutedGold text-espresso text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
@@ -234,14 +232,7 @@
                                  class="w-full h-[380px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700 brightness-95 hover:brightness-100"
                                  onerror="this.src='https://placehold.co/1200x800/2B1710/E9DCC9?text=Handcrafted+Bonbons'">
                             
-                            <!-- Overlay Badge -->
-                            <!-- <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-card text-espresso border border-mutedGold/50 flex items-center justify-between shadow-xl">
-                                <div>
-                                    <span class="text-[10px] font-bold uppercase tracking-widest text-mutedGold block">Featured Creation</span>
-                                    <h3 class="font-cinzel font-bold text-base text-espresso">Signature Gold Hazelnut Bonbon</h3>
-                                </div>
-                                <span class="font-cinzel font-bold text-espresso bg-mutedGold/20 px-3 py-1 rounded text-sm">rs.3.50 / ea</span>
-                            </div> -->
+                           
                         </div>
                     </div>
                 </div>
@@ -521,14 +512,8 @@
                 <!-- Newsletter Column -->
                 <div class="md:col-span-4 space-y-4">
                     <h4 class="font-cinzel text-xs uppercase tracking-widest text-mutedGold font-bold">Seasonal Bonbon Releases</h4>
-                    <p class="text-10px text-champagne/70 font-garamond">Subscribe to receive invitation-only early access to our limited micro-batch releases.</p>
-                    <form onsubmit="event.preventDefault(); showToast('Email signup is not connected yet.');" class="newsletter-form flex flex-col sm:flex-row gap-2">
-                        <input type="email" placeholder="Your email address" aria-label="Email address" required
-                               class="min-w-0 bg-espresso/80 border border-mutedGold/40 text-champagne placeholder:text-champagne/60 px-3 py-2 rounded text-xs focus:outline-none focus:border-mutedGold flex-1">
-                        <button type="submit" class="w-full sm:w-auto bg-mutedGold text-espresso px-4 py-2 font-cinzel text-xs font-bold uppercase rounded hover:bg-goldHover">
-                            Join
-                        </button>
-                    </form>
+                    <p class="text-10px text-champagne/70 font-garamond">Order early to access our limited micro-batch releases.</p>
+                    
                 </div>
 
             </div>
@@ -951,6 +936,7 @@
                                 '*Customer Details:*',
                                 `Name: ${name}`,
                                 `Phone: ${phone}`,
+                                '',
                                 '*Order Items:*',
                                 itemsList,
                                
