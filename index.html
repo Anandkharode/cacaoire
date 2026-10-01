@@ -409,6 +409,37 @@
         </div>
     </div>
 
+    <!-- WhatsApp Order Checkout Modal -->
+    <div id="checkout-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+        <div class="relative my-auto w-full max-w-md rounded-xl border border-[#E9DCC9] bg-[#F7EFE3] p-6 text-[#2B1710] shadow-2xl">
+            <button type="button" onclick="closeCheckoutModal()" class="absolute right-4 top-4 p-1 text-[#2B1710]/60 hover:text-[#2B1710]" aria-label="Close checkout">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+
+            <h2 id="checkoutTitle" class="mb-2 pr-8 font-serif text-2xl font-bold">Complete Your Order</h2>
+            <p class="mb-6 text-xs text-[#2B1710]/70">
+                Enter your details below. We will open WhatsApp so you can complete your UPI payment and confirm your delivery address with us.
+            </p>
+
+            <form id="whatsapp-checkout-form" class="space-y-4">
+                <div>
+                    <label for="cust-name" class="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#2B1710]/80">Your Name</label>
+                    <input type="text" id="cust-name" name="name" placeholder="e.g. Rahul Sharma" autocomplete="name" required class="w-full rounded-md border border-[#E9DCC9] bg-white/80 px-3 py-2 text-sm focus:border-[#B08D57] focus:outline-none">
+                </div>
+
+                <div>
+                    <label for="cust-phone" class="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#2B1710]/80">Phone Number</label>
+                    <input type="tel" id="cust-phone" name="phone" placeholder="10-digit mobile number" inputmode="numeric" autocomplete="tel-national" maxlength="10" pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit Indian mobile number" required class="w-full rounded-md border border-[#E9DCC9] bg-white/80 px-3 py-2 text-sm focus:border-[#B08D57] focus:outline-none">
+                </div>
+
+                <button type="submit" class="mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-[#2B1710] py-3 font-serif font-medium text-[#F7EFE3] shadow-md transition-all hover:bg-[#B08D57]">
+                    <span>Proceed via WhatsApp</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Search Modal -->
     <div id="searchModal" class="fixed inset-0 z-50 hidden items-start justify-center p-4 pt-24 bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
         <div class="w-full max-w-xl rounded-2xl border border-mutedGold/40 bg-espresso p-5 text-champagne shadow-2xl">
@@ -588,6 +619,7 @@
             renderBonbonGrid('all');
             setupFilterButtons();
             setupCartDrawer();
+            setupCheckoutModal();
             setupHeaderActions();
         });
 
@@ -624,7 +656,7 @@
                                 <span class="font-cinzel font-bold text-mutedGold text-sm">₹${item.price.toFixed(2)}</span>
                             </div>
 
-                            <p class="text-10px text-espresso/70 font-serif line-clamp-2">${item.description}</p>
+                            <p class="text-10px text-espresso/70 font-serif leading-relaxed">${item.description}</p>
 
                             <div class="flex flex-wrap gap-1 pt-1">
                                 ${item.notes.map(note => `<span class="text-[11px] bg-mutedGold/15 border border-mutedGold/30 text-espresso px-2 py-0.5 rounded font-bold">${note}</span>`).join('')}
@@ -788,6 +820,7 @@
                 if (event.key === 'Escape') {
                     closeSearch();
                     closeQuickView();
+                    closeCheckoutModal();
                     toggleCart(false);
                 }
             });
@@ -862,7 +895,19 @@
                 showToast('Your chocolate box is empty.');
                 return;
             }
-            showToast('Checkout is not connected to a payment service yet.');
+            toggleCart(false);
+            openCheckoutModal();
+        }
+
+        function setupCheckoutModal() {
+            const modal = document.getElementById('checkout-modal');
+            document.getElementById('whatsapp-checkout-form').addEventListener('submit', event => {
+                event.preventDefault();
+                sendWhatsAppOrder();
+            });
+            modal.addEventListener('click', event => {
+                if (event.target === modal) closeCheckoutModal();
+            });
         }
 
         // Toast Helper
@@ -878,6 +923,58 @@
             toastTimer = setTimeout(() => {
                 toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
             }, 3000);
+        }
+
+                function sendWhatsAppOrder() {
+                        const nameField = document.getElementById('cust-name');
+                        const phoneField = document.getElementById('cust-phone');
+                        const name = nameField.value.trim();
+                        const phone = phoneField.value.trim();
+
+                        nameField.setCustomValidity(name ? '' : 'Please enter your name.');
+                        phoneField.setCustomValidity(/^[6-9]\d{9}$/.test(phone) ? '' : 'Enter a valid 10-digit Indian mobile number.');
+                        if (!nameField.reportValidity() || !phoneField.reportValidity()) return;
+                        if (cart.length === 0) {
+                                closeCheckoutModal();
+                                showToast('Your chocolate box is empty.');
+                                return;
+                        }
+
+                        const businessWhatsAppNumber = '917620677067';
+                        const upiId = 'cacaoire@okaxis';
+                        const totalAmount = cart.reduce((total, item) => total + item.price * item.qty, 0);
+                        const itemsList = cart.map(item =>
+                                `- ${item.name} x ${item.qty}: ₹${(item.price * item.qty).toFixed(2)}`
+                        ).join('\n');
+                        const message = [
+                                '*NEW ORDER - CACAOIRE CHOCOLATES*',
+                                '*Customer Details:*',
+                                `Name: ${name}`,
+                                `Phone: ${phone}`,
+                                '*Order Items:*',
+                                itemsList,
+                               
+                                `*Total Amount:* ₹${totalAmount.toFixed(2)}`,
+                                '',
+                                `Please share the UPI QR / details for *${upiId}* to complete payment and confirm my delivery address.`
+                        ].join('\n');
+                        const whatsappUrl = `https://wa.me/${businessWhatsAppNumber}?text=${encodeURIComponent(message)}`;
+
+                        if (window.open(whatsappUrl, '_blank') === null) {
+                                window.location.assign(whatsappUrl);
+                                return;
+                        }
+                        document.getElementById('whatsapp-checkout-form').reset();
+                        closeCheckoutModal();
+                }
+
+        function openCheckoutModal() {
+                        document.getElementById('checkout-modal').classList.remove('hidden');
+                        document.getElementById('cust-name').focus();
+        }
+
+        function closeCheckoutModal() {
+                        document.getElementById('checkout-modal').classList.add('hidden');
         }
     </script>
 </body>
